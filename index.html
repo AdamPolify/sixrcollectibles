@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIXR Collectibles — Pack Platform Proposal</title>
+<meta name="description" content="Proposal for SIXR Collectibles: a branded cricket pack-opening platform.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080d18; --panel: #0f1626; --line: #222c42; --ink: #e8edf7; --muted: #9aa6bd;
+  --blue: #2f7bff; --green: #2fbf71; --purple: #9b5cff; --gold: #f2c14e;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+.hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line);
+  background: radial-gradient(1200px 500px at 15% -10%, rgba(47,123,255,.28), transparent 60%),
+              radial-gradient(900px 400px at 95% 10%, rgba(155,92,255,.22), transparent 60%), var(--bg); }
+.hero-inner { max-width: 920px; margin: 0 auto; padding: 88px 24px 64px; }
+.eyebrow { font: 700 13px/1 Archivo, sans-serif; letter-spacing: .22em; text-transform: uppercase; color: var(--blue); }
+.hero h1 { font: 900 clamp(34px, 6vw, 60px)/1.02 Archivo, sans-serif; letter-spacing: -.01em; margin: 18px 0 18px; text-transform: uppercase; }
+.hero p { color: var(--muted); max-width: 620px; margin: 0; font-size: 17px; }
+.rarities { display: flex; gap: 10px; margin-top: 28px; flex-wrap: wrap; }
+.chip { font: 700 12px/1 Archivo, sans-serif; letter-spacing: .14em; text-transform: uppercase; padding: 9px 14px; border-radius: 999px; border: 1px solid; }
+.chip.c { color: #8fb6ff; border-color: rgba(47,123,255,.5); background: rgba(47,123,255,.12); }
+.chip.r { color: #7fe0aa; border-color: rgba(47,191,113,.5); background: rgba(47,191,113,.12); }
+.chip.l { color: #c4a2ff; border-color: rgba(155,92,255,.55); background: rgba(155,92,255,.14); }
+.date { margin-top: 28px; font-size: 13px; color: var(--muted); }
+main { max-width: 920px; margin: 0 auto; padding: 24px 24px 96px; }
+h2 { font: 800 clamp(24px, 3.4vw, 32px)/1.15 Archivo, sans-serif; margin: 72px 0 16px; padding-top: 24px; border-top: 1px solid var(--line); }
+h2:first-child { border-top: 0; margin-top: 40px; }
+h3 { font: 700 19px/1.3 Archivo, sans-serif; margin: 36px 0 10px; color: #cfd8ea; }
+p, li { color: #cdd5e3; }
+strong { color: var(--ink); }
+a { color: #7fb0ff; text-decoration: none; border-bottom: 1px solid rgba(127,176,255,.35); }
+a:hover { border-bottom-color: #7fb0ff; }
+ul, ol { padding-left: 22px; }
+li { margin: 6px 0; }
+.table-wrap { overflow-x: auto; margin: 20px 0; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; min-width: 560px; }
+th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font: 700 12px/1.3 Archivo, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); background: #0c1322; }
+tr:last-child td { border-bottom: 0; }
+td strong { color: #fff; }
+figure { margin: 22px 0 30px; }
+figure img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--line); background: #111; }
+figure img[src*="pack-box"] { max-width: 360px; }
+figure img[src*="cricket-pack-hero"] { max-width: 520px; }
+figcaption { font-size: 13px; color: var(--muted); margin-top: 10px; }
+figure.flow { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 12px 8px; }
+figure.flow svg { display: block; width: 100%; height: auto; }
+figure.flow figcaption { padding: 0 16px 6px; }
+.box { display: inline-block; width: 14px; height: 14px; border: 1.5px solid var(--muted); border-radius: 4px; margin-right: 8px; vertical-align: -2px; }
+li:has(.box) { list-style: none; margin-left: -22px; }
+footer { max-width: 920px; margin: 0 auto; padding: 0 24px 48px; color: var(--muted); font-size: 13px; }
+@media (max-width: 600px) {
+  .hero-inner { padding: 64px 16px 44px; }
+  main, footer { padding-left: 16px; padding-right: 16px; }
+}
+</style>
+</head>
+<body>
+<header class="hero"><div class="hero-inner">
+  <div class="eyebrow">SIXR Cricket · Proposal</div>
+  <h1>SIXR Collectibles</h1>
+  <p>A branded pack-opening platform: fans rip a SIXR pack and reveal cricket stars, signed editions, video messages and in-game items.</p>
+  <div class="rarities"><span class="chip c">Common</span><span class="chip r">Rare</span><span class="chip l">Legendary</span></div>
+  <div class="date">Oct 23, 2026</div>
+</div></header>
+<main>
+<h2>Overview</h2>
+<p>We propose building <strong>SIXR Collectibles</strong>: a branded pack-opening platform where fans buy a SIXR pack, rip it open, and reveal a cricket collectible they keep, trade or show off. It turns the SIXR game universe into something fans can own.</p>
+<p>Each pack contains one card. That card can be:</p>
+<ul>
+<li><strong>A cricket star</strong> in one of the game's rarities (Common, Rare, Legendary)</li>
+<li><strong>A signed edition</strong> of a star card, in limited supply</li>
+<li><strong>A personal video card</strong>, a short message recorded by the player</li>
+<li><strong>A general collectible or in-game item</strong> drawn from the SIXR game: bats, balls, helmets and clothing</li>
+</ul>
+<p>We offer two packages. <strong>Package A</strong> gets a single-pack product live fast. <strong>Package B</strong>, which we recommend, launches with three tiered packs and a full, interactive reveal experience, the format the leading pack platforms use to drive repeat purchases.</p>
+<h2>Why this format works</h2>
+<p>Digital pack platforms such as Slabz, Courtyard, Collector Crypt and Beezie have proven a simple loop: pick a pack, rip it, reveal, collect, repeat. None of them own cricket, and none have a game universe behind the cards. SIXR has both.</p>
+<p>The platforms that perform best share three traits we build into SIXR Collectibles:</p>
+<ul>
+<li><strong>Tiered price points.</strong> Magic Eden's Solana packs sell at roughly $10, $35 and $100. Slabz runs Pokémon packs from $25 up to $5,000. A low entry tier brings fans in; higher tiers carry scarcer, more valuable pulls.</li>
+<li><strong>A single, focused dashboard.</strong> Pack selection, odds, a live feed of recent pulls and a prominent rip button on one screen keep users in the loop.</li>
+<li><strong>Theatre on reveal.</strong> The opening moment is the product. Rarer pulls get bigger, longer, more distinct reveals, which is what fans share.</li>
+</ul>
+<p>SIXR's edge is authenticity: real cricket stars, signed editions and personal video messages, plus items that already exist in the SIXR game.</p>
+<h2>The collectible system</h2>
+<p>Every card uses the same three rarities as the SIXR game, Common, Rare and Legendary, so the collectibles and the game read as one world. The game's visual language carries over: Common in blue, Rare in green, Legendary in purple, as on the existing Masuri, Spartan and Crest A2 item cards.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Card type</th>
+<th>Examples</th>
+<th>Rarities</th>
+<th>Supply</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cricket star</td>
+<td>Player portrait cards (style of the existing NFC card concepts)</td>
+<td>Common, Rare, Legendary</td>
+<td>Open to limited</td>
+</tr>
+<tr>
+<td>Signed star</td>
+<td>Star card with a signature treatment</td>
+<td>Legendary only</td>
+<td>Strictly limited, numbered</td>
+</tr>
+<tr>
+<td>Video message</td>
+<td>Star card that plays a short personal video from the player</td>
+<td>Legendary only</td>
+<td>1-of-1 or very low run</td>
+</tr>
+<tr>
+<td>In-game item</td>
+<td>Bats (Spartan, Crest A2), helmets, balls, clothing</td>
+<td>Common, Rare, Legendary</td>
+<td>Open to limited</td>
+</tr>
+<tr>
+<td>General collectible</td>
+<td>SIXR coins, gems, branded moments</td>
+<td>Common, Rare</td>
+<td>Open</td>
+</tr>
+</tbody>
+</table></div>
+<p>Signed and video cards are the "grails" that drive excitement. They sit at the top of the odds table and feature on the Top Grails screen. Final player list, odds and supply per card are set with SIXR before design starts.</p>
+<h2>The fan experience</h2>
+<p>Fans move through one simple loop: enter, pick a pack, rip it, see the reveal, and find the card in their inventory. The dashboard is the hub, modelled on the single-screen layout of Slabz, with pack types and rarities on the right and recent pulls across the top.</p>
+<figure class="flow"><svg viewBox='0 0 760 296' role='img' aria-label='Every screen hangs off one dashboard' font-size='13' font-family='Inter, system-ui, sans-serif'>
+<defs><marker id='ux-arrow' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='6' markerHeight='6' orient='auto-start-reverse'><path d='M0 0L10 5L0 10z' fill='#5d6b85'/></marker></defs>
+<text x='24' y='34' font-size='15' font-weight='600' fill='#e8edf7'>Every screen hangs off one dashboard</text>
+<g fill='none' stroke='#5d6b85' stroke-width='1.25'>
+<path d='M208 98H288' marker-end='url(#ux-arrow)'/><path d='M472 98H552' marker-end='url(#ux-arrow)'/>
+<path d='M644 136V196' marker-end='url(#ux-arrow)'/><path d='M552 234H472' marker-end='url(#ux-arrow)'/>
+<path d='M380 136V196' marker-end='url(#ux-arrow)'/><path d='M330 136V166H116V196' marker-end='url(#ux-arrow)'/>
+</g>
+<g font-size='11.5' fill='#8b97ad' text-anchor='middle'><text x='248' y='88'>enter</text><text x='512' y='88'>pick a pack</text><text x='512' y='224'>card added</text></g>
+<g><rect x='24' y='60' width='184' height='76' rx='10' fill='#121a2b' stroke='#34405a' stroke-width='1.25'/><text x='116' y='84' text-anchor='middle' font-weight='600' fill='#e8edf7'>Splash and onboarding</text><text x='116' y='104' text-anchor='middle' font-size='11.5' fill='#a9b4c8'>Branded intro</text><text x='116' y='120' text-anchor='middle' font-size='11.5' fill='#a9b4c8'>First-time walkthrough</text></g><g><rect x='288' y='60' width='184' height='76' rx='10' fill='rgba(47,123,255,0.16)' stroke='#2f7bff' stroke-width='2'/><text x='380' y='84' text-anchor='middle' font-weight='600' fill='#e8edf7'>Dashboard</text><text x='380' y='104' text-anchor='middle' font-size='11.5' fill='#a9b4c8'>Packs and rarity odds</text><text x='380' y='120' text-anchor='middle' font-size='11.5' fill='#a9b4c8'>Live feed of recent pulls</text></g><g><rect x='552' y='60' width='184' height='76' rx='10' fill='#121a2b' stroke='#34405a' stroke-width='1.25'/><text x='644' y='84' text-anchor='middle' font-weight='600' fill='#e8edf7'>Pack opening</text><text x='644' y='104' text-anchor='middle' font-size='11.5' fill='#a9b4c8'>Hold to rip the 3D pack</text><text x='644' y='120' text-anchor='middle' font-size='11.5' fill='#a9b4c8'>Build-up to the reveal</text></g><g><rect x='24' y='196' width='184' height='76' rx='10' fill='#121a2b' stroke='#34405a' stroke-width='1.25'/><text x='116' y='220' text-anchor='middle' font-weight='600' fill='#e8edf7'>Top Grails</text><text x='116' y='240' text-anchor='middle' font-size='11.5' fill='#a9b4c8'>Headline pulls per pack</text><text x='116' y='256' text-anchor='middle' font-size='11.5' fill='#a9b4c8'>Full card pool and odds</text></g><g><rect x='288' y='196' width='184' height='76' rx='10' fill='#121a2b' stroke='#34405a' stroke-width='1.25'/><text x='380' y='220' text-anchor='middle' font-weight='600' fill='#e8edf7'>Inventory</text><text x='380' y='240' text-anchor='middle' font-size='11.5' fill='#a9b4c8'>Every card the fan owns</text><text x='380' y='256' text-anchor='middle' font-size='11.5' fill='#a9b4c8'>Card detail and video</text></g><g><rect x='552' y='196' width='184' height='76' rx='10' fill='#121a2b' stroke='#34405a' stroke-width='1.25'/><text x='644' y='220' text-anchor='middle' font-weight='600' fill='#e8edf7'>Reveal by rarity</text><text x='644' y='240' text-anchor='middle' font-size='11.5' fill='#a9b4c8'>Common, Rare, Legendary</text><text x='644' y='256' text-anchor='middle' font-size='11.5' fill='#a9b4c8'>3 styles in Package B</text></g>
+</svg><figcaption>SIXR Collectibles user flow · 6 screens</figcaption></figure>
+
+<p>From any reveal, fans can rip another pack straight away or go to their inventory.</p>
+<h2>Package A — Launch: $6,500 + $3,000 of whats owed for UI/UX</h2>
+<p>Package A puts a complete, single-pack SIXR Collectibles product in fans' hands. One branded pack, one pool of 20 cards, and every core screen needed to buy, open and collect.</p>
+<p><strong>UI/UX design</strong></p>
+<ol>
+<li><strong>Splash screen and onboarding</strong> — branded entry into the platform and a short first-time walkthrough.</li>
+<li><strong>Unified dashboard</strong> — one screen to navigate everything: pack selection, rarity breakdown on the right, recent pulls feed along the top, and the primary rip action.</li>
+<li><strong>Pack opening animation</strong> — one rip-and-reveal sequence used for all pulls.</li>
+<li><strong>Top Grails and collectibles screen</strong> — browse the headline pulls and every card in the pack's pool.</li>
+<li><strong>Inventory</strong> — the user's collection, with card detail view.</li>
+</ol>
+<p><strong>Assets</strong></p>
+<ul>
+<li>1 SIXR-branded 3D pack</li>
+<li>20 card designs across Common, Rare and Legendary</li>
+</ul>
+<p><strong>Build</strong></p>
+<ul>
+<li>Front-end development of all screens above, responsive for desktop and mobile</li>
+</ul>
+<p>Best for: validating demand quickly with a single price point.</p>
+<h2>Package B — Full Experience (recommended): $10,000 + $3,000 of whats owed for UI/UX</h2>
+<p>Package B launches SIXR Collectibles the way the leading platforms do: three packs at three price points, each richer and scarcer than the last, wrapped in a fully animated, interactive experience. It is built for repeat purchases and shareable moments.</p>
+<p><strong>Three tiered packs</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Pack</th>
+<th>Positioning</th>
+<th>Cards in pool</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Common pack</td>
+<td>Entry price, high volume</td>
+<td>20</td>
+<td>Mostly Common stars and items, chance of Rare</td>
+</tr>
+<tr>
+<td>Rare pack</td>
+<td>Mid price</td>
+<td>20</td>
+<td>Rare stars and items, chance of Legendary</td>
+</tr>
+<tr>
+<td>Legendary pack</td>
+<td>Premium, limited run</td>
+<td>20</td>
+<td>Legendary stars, signed editions, video message cards</td>
+</tr>
+</tbody>
+</table></div>
+<p>Pack prices are set by SIXR. A spread similar to the market, for example $10 / $35 / $100, works well.</p>
+<p><strong>Everything in Package A, plus</strong></p>
+<ul>
+<li>3 SIXR-branded 3D packs, one per tier, each with its own material and finish</li>
+<li>60 card designs (20 per pack) across Common, Rare and Legendary</li>
+<li><strong>Cinematic entry animation</strong> from splash into the dashboard</li>
+<li><strong>Three rarity-specific reveal animations</strong>: a quick, clean Common reveal; a stronger Rare reveal; a full Legendary moment with light, sound cues and a hold-to-reveal build-up</li>
+<li><strong>Interactive cards</strong>: tilt, holographic sheen and flip to see card details</li>
+<li>Pack switcher, odds per pack and Top Grails per pack on the dashboard</li>
+<li>Extended front-end build covering all three packs and reveal states</li>
+</ul>
+<p><strong>Option: 90 cards (30 per pack)</strong> — add $2,500, total $12,500.</p>
+<p>Best for: a launch that matches the TCG platforms fans already use, with room for higher-value pulls.</p>
+<h2>Package comparison</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Package A — Launch</th>
+<th>Package B — Full Experience</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Packs (3D)</td>
+<td>1</td>
+<td>3 (Common, Rare, Legendary)</td>
+</tr>
+<tr>
+<td>Card designs</td>
+<td>20</td>
+<td>60 (90 as option)</td>
+</tr>
+<tr>
+<td>Splash, onboarding, dashboard, Top Grails, inventory</td>
+<td>Yes</td>
+<td>Yes, per-pack views</td>
+</tr>
+<tr>
+<td>Entry animation into the dashboard</td>
+<td>—</td>
+<td>Cinematic</td>
+</tr>
+<tr>
+<td>Reveal animations</td>
+<td>1 shared</td>
+<td>3, one per rarity</td>
+</tr>
+<tr>
+<td>Interactive cards (tilt, sheen, flip)</td>
+<td>—</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Front-end build</td>
+<td>Yes</td>
+<td>Yes, extended</td>
+</tr>
+<tr>
+<td>Estimated timeline</td>
+<td>4–5 weeks</td>
+<td>7–8 weeks</td>
+</tr>
+<tr>
+<td><strong>Price</strong></td>
+<td><strong>$6,500</strong></td>
+<td><strong>$10,000</strong> ($12,500 with 90 cards)</td>
+</tr>
+<tr>
+<td>Outstanding game UI/UX balance</td>
+<td>+ $3,000</td>
+<td>+ $3,000</td>
+</tr>
+<tr>
+<td><strong>Total due</strong></td>
+<td><strong>$9,500</strong></td>
+<td><strong>$13,000</strong> ($15,500 with 90 cards)</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Timeline and payment</h2>
+<p>Both packages run in the same four phases; Package B spends longer on assets and animation.</p>
+<ol>
+<li><strong>Discovery and card list</strong> — agree players, items, rarities, odds and supply (week 1).</li>
+<li><strong>UI/UX design</strong> — splash, dashboard, Top Grails, inventory; review rounds with SIXR.</li>
+<li><strong>Assets and motion</strong> — 3D packs, card designs, reveal animations.</li>
+<li><strong>Front-end build and handover</strong> — implementation, QA on desktop and mobile, delivery.</li>
+</ol>
+<p><strong>Payment terms</strong></p>
+<ul>
+<li>The outstanding <strong>$3,000</strong> from the SIXR game UI/UX contract is settled together with the deposit.</li>
+<li>Package A: 50% to start, 50% on delivery.</li>
+<li>Package B: 40% to start, 30% at design sign-off, 30% on delivery.</li>
+</ul>
+<h2>Scope notes and next steps</h2>
+<p><strong>Not included</strong> (quoted separately if needed): backend and database, payments and checkout, wallet or blockchain minting, odds and randomisation logic on the server, hosting, player licensing, and filming or editing of video messages. The front end connects to APIs provided by SIXR or runs on mock data until those are ready.</p>
+<p><strong>SIXR provides</strong>: player photography and rights, signatures and video footage, final card list with odds, and pack pricing.</p>
+<p><strong>Includes</strong>: two revision rounds per design phase, source files for all screens and assets.</p>
+<p><strong>Next steps</strong></p>
+<ul>
+<li><span class='box'></span>SIXR chooses Package A or B (and 60 or 90 cards)</li>
+<li><span class='box'></span>Confirm platform: web app, Telegram Mini App or in-game</li>
+<li><span class='box'></span>Settle the $3,000 balance with the deposit</li>
+<li><span class='box'></span>Kick-off call to lock the card list</li>
+</ul>
+<h2>References</h2>
+<p>The visuals and platforms below set the direction for SIXR Collectibles.</p>
+<h3>Card direction</h3>
+<p>SIXR NFC card concepts in three rarities, with player portrait, nation and playing role. These set the look for the cricket star cards.</p>
+<figure><img src="images/ref-nfc-cards.jpg" alt="SIXR NFC card concepts: Common, Legendary and Rare" loading="lazy"><figcaption>SIXR NFC card concepts: Common, Legendary and Rare</figcaption></figure>
+
+<p>SIXR game item cards (Common, Rare, Legendary). These set the rarity colours and the style for in-game item collectibles.</p>
+<figure><img src="images/ref-sixr-game-items.jpg" alt="SIXR game item cards: Masuri helmet, Spartan bat, Crest A2 bat" loading="lazy"><figcaption>SIXR game item cards: Masuri helmet, Spartan bat, Crest A2 bat</figcaption></figure>
+
+<h3>Pack direction</h3>
+<p>A stylised 3D mystery pack with holographic edging and a lid, and a cricket version with bat and ball bursting out. These set the tone for the SIXR 3D pack.</p>
+<figure><img src="images/ref-pack-box.jpg" alt="3D mystery pack concept" loading="lazy"><figcaption>3D mystery pack concept</figcaption></figure>
+
+<figure><img src="images/ref-cricket-pack-hero.jpg" alt="Cricket pack concept with bat and ball" loading="lazy"><figcaption>Cricket pack concept with bat and ball</figcaption></figure>
+
+<h3>Platform and dashboard direction</h3>
+<p>Slabz: one dashboard with pack categories on the left, the pack in the centre, a live feed of recent pulls on top and a rewards meter on the right. This is the model for the SIXR dashboard.</p>
+<figure><img src="images/ref-slabz-dashboard.jpg" alt="Slabz pack dashboard" loading="lazy"><figcaption>Slabz pack dashboard</figcaption></figure>
+
+<p>Magic Eden Packs: three tiers at three price points (Bronze, Gold, Platinum), each pack more premium than the last. This is the model for Package B's tiers.</p>
+<figure><img src="images/ref-magic-eden-packs.jpg" alt="Magic Eden Solana NFT packs in three tiers" loading="lazy"><figcaption>Magic Eden Solana NFT packs in three tiers</figcaption></figure>
+
+<h3>Links</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Reference</th>
+<th>What to look at</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://x.com/SIXR_cricket" target="_blank" rel="noopener">SIXR on X</a></td>
+<td>Brand, audience and tone</td>
+</tr>
+<tr>
+<td><a href="https://www.figma.com/design/zTHONXX2lQuTxyOB8Egsw9/SIXR-Game?node-id=93-90" target="_blank" rel="noopener">SIXR game, Figma</a></td>
+<td>Item cards, rarities, reveal screens, store</td>
+</tr>
+<tr>
+<td><a href="https://slabz.com" target="_blank" rel="noopener">Slabz</a></td>
+<td>Single-screen dashboard, live pulls feed, hold-to-rip</td>
+</tr>
+<tr>
+<td><a href="https://magiceden.io/packs" target="_blank" rel="noopener">Magic Eden Packs</a></td>
+<td>Tiered packs at rising price points</td>
+</tr>
+<tr>
+<td><a href="https://courtyard.io" target="_blank" rel="noopener">Courtyard</a></td>
+<td>Digital packs from $25 Starter to $1,000 Diamond, instant buyback</td>
+</tr>
+<tr>
+<td><a href="https://collectorcrypt.com" target="_blank" rel="noopener">Collector Crypt</a></td>
+<td>Gacha packs on Solana, odds per pack, sell-back</td>
+</tr>
+<tr>
+<td><a href="https://beezie.com" target="_blank" rel="noopener">Beezie</a></td>
+<td>Claw-machine pulls with posted odds, points and raffles</td>
+</tr>
+</tbody>
+</table></div>
+</main>
+<footer>SIXR Collectibles — Pack Platform Proposal · Oct 23, 2026</footer>
+</body>
+</html>
